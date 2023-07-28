@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+        <report id="report_dailyReportExternallayout" 
+          string="Este es el external" 
+          model="covid.covid_19" 
+          report_type="qweb-pdf" 
+          name="covid-module.dailyReportExternallayout"
+          menu="True" 
+          print_report_name="'Report %s %s of the covid-19' % (object.date,object.country_id.name)"
+         /> 
+         
+        <template id="dailyReportExternallayout" >
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page" style="font-size:18px">
+                                <div class="row">
+                                    <div class="col-md-12" align="center">
+                                        <h2>Reporte CVID-19 <span t-field="o.date" /></h2>
+                                        <h4>Versión Registro Manual</h4>
+                                        <h5>Fuente <span t-field="o.source" /></h5>
+                                        <h5>País <span t-field="o.country_id" /></h5>
+                                    </div>
+                                </div>
+                                <div class="row mt8">
+                                    <div class="col-md-12" >
+                                            Infected: <span t-field="o.infected" /> <span t-esc="o.set_percentage_infected()" /> %
+                                    </div>
+                                </div>
+                                <div class="row mt8">
+                                    <div class="col-md-12" >
+                                        Recovered: <span t-field="o.recovered" /> <span t-esc="o.set_percentage_recovered()" /> %
+                                    </div>
+                                </div>
+                                <div class="row mt8">
+                                    <div class="col-md-12" >
+                                        Deseaced: <span t-field="o.deseaced" /> <span t-esc="o.set_percentage_deseaced()" /> %
+                                    </div>
+                                </div>
+                                <div class="row mt8">
+                                    <div class="col-md-12" align="center" style="margin-top: 10px; margin-bottom: 10px;">
+                                        Total accumulated up to the date of registration in <span t-field="o.country_id"></span> 
+                                    </div>
+                                </div>
+                                <div class="row mt8">
+                                    <div class="col-md-12" >
+                                        Total Infected Per Country: <span t-field="o.total_infected" />
+                                    </div>
+                                </div>
+                                <div class="row mt8">
+                                    <div class="col-md-12" >
+                                        Total Recovered Per Country: <span t-field="o.total_recovered" />
+                                    </div>
+                                </div>
+                                <div class="row mt8">
+                                    <div class="col-md-12" >
+                                        Total Deseaced Per Country: <span t-field="o.total_vaccinated_per_country" />
+                                    </div>
+                                </div>
+                                <div class="row mt8">
+                                    <div class="col-md-12" >
+                                        Total Vacunated Per Country: <span t-field="o.total_vaccinated_per_country" />
+                                    </div>
+                                </div>
+                                <div class="row mt8">
+                                    <div class="col-md-12" >
+                                        Total Vacunated Per Country: <span t-field="o.total_vaccinated_per_country" />
+                                    </div>
+                                </div>
+
+                                <div class="row mt8">
+                                    <div class="col-md-12" align="center" style="margin-top: 10px; margin-bottom: 10px;">
+                                        Total accumulated up to the date of registration in the world 
+                                    </div>
+                                </div>
+
+                                <div class="row mt8">
+                                    <div class="col-md-12" >
+                                        Total Vacunated: <span t-field="o.total_vaccinated_all" />
+                                    </div>
+                                </div>
+
+                                <div class="row mt8">
+                                    <div class="col-md-12" >
+                                        Total Deceased: <span t-field="o.total_deceased_all" />
+                                    </div>
+                                </div>
+
+                                <div class="row mt8">
+                                    <div class="col-md-12" >
+                                        Total Recovered: <span t-field="o.total_recovered_all" />
+                                    </div>
+                                </div>
+
+                                <div class="row mt8">
+                                    <div class="col-md-12" >
+                                        Total Deceased: <span t-field="o.total_infected_all" />
+                                    </div>
+                                </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        
+    </data>
+</odoo>

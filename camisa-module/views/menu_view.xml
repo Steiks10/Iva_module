@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <!-- product action-->
+        <record id="producto_action" model="ir.actions.act_window">
+            <field name="name">Product</field>
+            <field name="res_model">product_shirt.product_shirt</field>
+            <field name="view_mode">tree,form,kanban,graph,pivot</field>
+        </record>
+
+        <!-- customer action-->
+        <record id="customer_action" model="ir.actions.act_window">
+            <field name="name">Customer</field>
+            <field name="res_model">customer.customer</field>
+            <field name="view_mode">tree,form,kanban,graph,pivot</field>
+        </record>
+
+        <!-- bill action-->
+        <record id="bill_action" model="ir.actions.act_window">
+            <field name="name">Facturas</field>
+            <field name="res_model">bill</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+     <!-- Top menu item -->
+    
+     <menuitem 
+     name="Tienda de camisa" 
+     id="module_menu_root"/>
+
+        <menuitem
+            id="product_menu"
+            name="Producto"
+            parent="module_menu_root"
+            action="producto_action"/>
+        
+        <menuitem
+            id="customer_menu"
+            name="Cliente"
+            parent="module_menu_root"
+            action="customer_action"/>
+
+        <menuitem
+            id="bill_menu"
+            name="Factura"
+            parent="module_menu_root"
+            action="bill_action"/>
+    </data>
+</odoo>

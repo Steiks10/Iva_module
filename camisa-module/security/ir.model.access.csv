@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_public,product_access,model_product_shirt_product_shirt,,1,1,1,1
+access_customer_public,customer_access,model_customer_customer,,1,1,1,1
+access_bill_public,bill_access,model_bill,,1,1,1,1
+access_bill_lines_public,bill.lines.all,model_bill_lines,,1,1,1,1
+access_client_report_public,client_report_access,model_client_report,,1,1,1,1
+access_product_report_public,product_report_access,model_product_report,,1,1,1,1
+

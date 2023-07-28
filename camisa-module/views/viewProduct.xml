@@ -1,0 +1,134 @@
+<odoo>
+    <data>
+      
+      <!-- explicit calendar view definition -->
+      <!-- <record id="view_covid_covid_19_calendar" model="ir.ui.view">
+          <field name="name">covid.covid_19.calendar</field>
+          <field name="model">covid.covid_19</field>
+          <field name="arch" type="xml">
+              <calendar string="Covid 19" date_start="date">
+                  <field name="country_id"/>
+                  <field name="infected"/>
+              </calendar>
+          </field>
+      </record> -->
+      
+       <!-- explicit graph view definition -->
+      <record id="view_product_report_graph" model="ir.ui.view" >
+          <field name="name">product.report graph</field>
+          <field name="model">product.report</field>
+          <field name="arch" type="xml">
+              <graph string="Camisas mas vendidas" >
+                <field name="product_name"/>
+                <field name="cantidad_producto_vendido" type="measure"/>
+              </graph>
+          </field>
+      </record> 
+      
+      <!-- explicit pivot view definition -->
+      <record model="ir.ui.view" id="view_client_report_pivot">
+        <field name="name">product.report pivot</field>
+        <field name="model">product.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Estadistica clientes">
+                <field name="product_name" type="row"/>
+                <field name="date" type="col"/>
+                <field name="cantidad_producto_vendido" type="measure"/>
+            </pivot>
+        </field>
+    </record> 
+
+      <record model="ir.ui.view" id="product_form">
+        <field name="name">product_shirt.product_shirt form</field>
+        <field name="model">product_shirt.product_shirt</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet>
+              <group>
+                <group>
+                  <field name="product"/>
+                  <field name="sleeve"/>
+                  <field name="price"/>
+                </group>
+                  <notebook>
+                    <page string="Details">
+                      <group>
+                        <field name="fabric" string="Tela"/>
+                        <field name="color" string="Color"/>
+                        <field name="description" string="Descripcion"/>
+                        <field name="image" string="Imagen"/>
+                      </group>
+                    </page>
+                  </notebook>
+            </group>
+          </sheet>
+          </form>
+        </field>
+      </record>
+  
+      <!-- explicit list view definition -->
+      <record model="ir.ui.view" id="product_list">
+        <field name="name">product_shirt.product_shirt list</field>
+        <field name="model">product_shirt.product_shirt</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="sleeve"/>
+            <field name="product"/>
+            <field name="price"/>
+            <field name="description"/>
+            <field name="fabric"/>
+            <field name="color"/>
+            <field name="cantidadVendida"/>
+          </tree>
+        </field>
+      </record>
+      
+      <record id="product_canvan_view" model="ir.ui.view">
+        <field name="name">product_shirt.product_shirt canvan</field>
+        <field name="model">product_shirt.product_shirt</field>
+        <field name="arch" type="xml">
+          <kanban>
+            <field name="id"/>
+            <field name="product"/>
+            <field name="sleeve"/>
+            <field name="price"/>
+            <field name="description"/>
+            <field name="fabric"/>
+            <field name="image" widget="image"/>
+            <template>
+              <t t-name="kanban-box">
+                <div t-attf-class="oe_kanban_global_click">
+                  <div class="oe_kanban_details">
+                    <ul>
+                      <li>
+                        <field name="product"/>
+                      </li>
+                      <li>
+                        <field name="sleeve"/>
+                      </li>
+                      <li>
+                        <field name="price"/>
+                      </li>
+                      <li>
+                        <field name="description"/>
+                      </li>
+                      <li>
+                        <field name="fabric"/>
+                      </li>
+                      <li>
+                        <div class="o_kanban_image">
+                          <img t-att-src="kanban_image('product_shirt.product_shirt','image',record.id.raw_value)" alt="Imagen"/>
+                      </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </t>
+            </template>
+          </kanban>
+        </field>
+      </record>
+
+
+    </data>
+  </odoo>

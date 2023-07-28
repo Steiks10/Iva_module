@@ -1,0 +1,109 @@
+<odoo>
+    <data>
+      
+      <!-- explicit calendar view definition -->
+      <!-- <record id="view_covid_covid_19_calendar" model="ir.ui.view">
+          <field name="name">covid.covid_19.calendar</field>
+          <field name="model">covid.covid_19</field>
+          <field name="arch" type="xml">
+              <calendar string="Covid 19" date_start="date">
+                  <field name="country_id"/>
+                  <field name="infected"/>
+              </calendar>
+          </field>
+      </record> -->
+      
+       <!-- explicit graph view definition -->
+      <!-- <record id="view_covid_covid_19_graph" model="ir.ui.view" >
+          <field name="name">covid.covid_19.graph</field>
+          <field name="model">covid.covid_19</field>
+          <field name="arch" type="xml">
+              <graph string="Covid 19" >
+                  <field name="country_id"/>
+  
+                  <field name="infected" type="measure"/>
+                  <field name="vaccinated" type="measure"/>
+              </graph>
+          </field>
+      </record> -->
+      
+      <!-- explicit pivot view definition -->
+      <!-- <record model="ir.ui.view" id="view_sale_order_pivot">
+          <field name="name">covid.covid_19.pivot</field>
+          <field name="model">covid.covid_19</field>
+          <field name="arch" type="xml">
+              <pivot string="Covid 19">
+                  <field name="date" type="row"/>
+                  <field name="country_id" type="row"/>
+                  <field name="infected" type="measure"/>
+                  <field name="recovered" type="measure"/>
+                  <field name="deseaced" type="measure"/>
+                  <field name="vaccinated" type="measure"/>
+              </pivot>
+          </field>
+      </record> -->
+  
+      <!-- explicit list view definition -->
+      <record model="ir.ui.view" id="bill_form2">
+        <field name="name">bill form</field>
+        <field name="model">bill</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="customer_id"/>
+                        <field name="fecha"/>                   
+                    </group>            
+                    <notebook>
+                        <page id="invoice_tab" name="invoice_tab" string="Invoice Lines">
+                            <field name="bill_lines_ids" 
+                                widget="section_and_note_one2many"
+                                mode="tree,kanban">
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <!-- otros campos de bill.lines -->
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="product_id" widget="many2one" 
+                                        options="{'no_create': True}"/>
+                                        <!-- otros campos de bill.lines -->
+                                        <field name="quantity" colspan="2"/>
+                                    </group>
+                                   
+                                </form>
+                            </field>
+                            <group>
+                                <group>
+                                    <group>
+                                        <field name="cantidad_productos"/>
+                                        <field name="cantidad_total" string="Total sin IVA"/>
+                                        <field name="cantidad_IVA" string="IVA"/>
+                                        <field name="cantidad_total_compra" string="Total"/>
+                                    </group>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+          </form>
+        </field>
+      </record>
+
+      <!-- explicit list view definition -->
+      <record model="ir.ui.view" id="bill_list_items">
+        <field name="name">bill list</field>
+        <field name="model">bill</field>
+        <field name="arch" type="xml">
+          <tree>
+              <field name="customer_id"/>
+              <field name="fecha"/>
+              <field name="cantidad_total_compra"/>
+          </tree>
+        </field>
+      </record>
+
+    </data>
+  </odoo>
+  

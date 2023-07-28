@@ -1,0 +1,87 @@
+<odoo>
+  <data>
+    
+    <!-- explicit calendar view definition -->
+    <!-- <record id="view_covid_covid_19_calendar" model="ir.ui.view">
+        <field name="name">covid.covid_19.calendar</field>
+        <field name="model">covid.covid_19</field>
+        <field name="arch" type="xml">
+            <calendar string="Covid 19" date_start="date">
+                <field name="country_id"/>
+                <field name="infected"/>
+            </calendar>
+        </field>
+    </record> -->
+    
+     <!-- explicit graph view definition -->
+    <!-- <record id="view_covid_covid_19_graph" model="ir.ui.view" >
+        <field name="name">covid.covid_19.graph</field>
+        <field name="model">covid.covid_19</field>
+        <field name="arch" type="xml">
+            <graph string="Covid 19" >
+                <field name="country_id"/>
+
+                <field name="infected" type="measure"/>
+                <field name="vaccinated" type="measure"/>
+            </graph>
+        </field>
+    </record> -->
+    
+    <!-- explicit pivot view definition -->
+  <record model="ir.ui.view" id="view_client_report_pivot">
+        <field name="name">client.report pivot</field>
+        <field name="model">client.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Estadistica clientes">
+                <field name="customer_name" type="row"/>
+                <field name="date" type="col"/>
+                <field name="cantidad_compras" type="measure"/>
+                <field name="cantidad_productos_comprados" type="measure"/>
+            </pivot>
+        </field>
+    </record> 
+
+
+    <record id="view_customer_graph" model="ir.ui.view" >
+      <field name="name">client.report graph</field>
+      <field name="model">client.report</field>
+      <field name="arch" type="xml">
+          <graph string="Clientes estrellas">
+            <field name="customer_name"/>
+            <field name="cantidad_compras" type="measure"/>
+            <field name="cantidad_productos_comprados" type="measure"/>
+          </graph>
+      </field>
+  </record> 
+
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="customer_form">
+      <field name="name">customer.customer form</field>
+      <field name="model">customer.customer</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="name"/>
+            <field name="apellido"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="customer_list_items">
+      <field name="name">customer_customer list</field>
+      <field name="model">customer.customer</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="apellido"/>
+          <field name="cantidadcompra"/>
+          <field name="cantidad_productos"/>
+
+        </tree>
+      </field>
+    </record>
+
+  </data>
+</odoo>
